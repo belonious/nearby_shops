@@ -1,0 +1,17 @@
+Small description on the problem approach:
+General -
+Whole solution consist of an api route, which receives options, validates them.
+A service that's responsible for filtering data.
+On the client side,code that fetches the data and normalizes them.
+
+Data -
+To load and query data I used pandas library.
+All needed data and some pre-calculated merged datasets are load
+into memory on application start.
+
+Testing -
+Tests are mostly unit test for the options validation.
+
+Errors -
+Error handling is mostly on the api route options.
+

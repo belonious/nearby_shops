@@ -57,7 +57,9 @@ def query_data(count, lat, lng, radius, tags):
     '''
     shops = SHOPS.copy()
     if len(tags) > 0:
-        shops = get_shops_with_tags(tags)
+        shops = get_shops_with_tags(tags).drop_duplicates(subset='shop_id', keep='first')
+    if len(shops) <= 0:  # No shops with selected tags
+        return shops
     shops['dist'] = shops.apply(lambda row: haversine_np(lng,
                                                          lat,
                                                          row['lng'],
